@@ -28,7 +28,5 @@ router.get('/verified/:token', userController.verified );
 router.put('/user/:id', userController.update);
 router.delete('/user/:id', userController.deleteUser);
  
-
-
 }
 
