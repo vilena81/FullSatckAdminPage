@@ -47,7 +47,7 @@ exports.deleteProductById = async(req, res) => {
     try{
         const id = req.params;
         const data = await Product.destroy({where: id})
-        res.status(201).json(data)
+        res.status(204).json(data)
     }
     catch(err){
         res.status(500).json({error: err.message})

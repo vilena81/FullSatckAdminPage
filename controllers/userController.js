@@ -87,10 +87,6 @@ exports.register = (req,res)=>{
               if(error){
                   return res.status(400).json({error: error.details[0].message});
               }
-    // const emailRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[^\s@]+@[^\s@]+\.[^\s@]{2,}$/ ;
-    // if(!emailRegex.test(email)){
-    //   return res.status(400).json({error: 'Invalid email format'})
-    // }
     Users_schema.findOne({where: {email: email}})
     .then((user)=>{
       if(user){

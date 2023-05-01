@@ -7,17 +7,17 @@ const { authenticateToken } = require('../function/authenticateToken');
 
 
 exports.routers = (router) =>{
-router.get('/', productsController.getAllProducts);
+router.get('/products', productsController.getAllProducts);
 router.get('/products/:id',productsController.getProductById);
-router.post('/products',authenticateToken,productsController.addProducts);
-router.put('/update/:id',authenticateToken,productsController.updateProductById);
-router.delete('/delete/:id',authenticateToken,productsController.deleteProductById);
+router.post('/products',productsController.addProducts);
+router.put('/products/:id',productsController.updateProductById);
+router.delete('/products/:id',productsController.deleteProductById);
 
 router.get('/category',categoryController.getAllCategory);    
 router.get('/category/:id',categoryController.getCategoryById);
-router.post('/category',authenticateToken,categoryController.addCategory);
-router.put('/:id',authenticateToken,categoryController.updateCategoryById);
-router.delete('/category/delete/:id',authenticateToken,categoryController.deleteCategoryById);
+router.post('/category',categoryController.addCategory);
+router.put('/category/:id',categoryController.updateCategoryById);
+router.delete('/category/:id',categoryController.deleteCategoryById);
 
 
 router.get('/user', userController.getAllUsers);
