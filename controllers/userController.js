@@ -50,36 +50,7 @@ exports.verified = async (req, res) => {
 
 }
 
-// exports.register = async (req, res) => {
-//     const { error } = regSchema.validate(req.body);
-//     if (error) {
-//         return res.status(400).json({ error: error.details[0].message });
-//     }
-//     const { role, email, userName, firstName, lastName, password } = req.body
-//     const emailRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
-//     if (!emailRegex.test(email)) {
-//         return res.status(400).json({ error: "Invalid email format" })
-//     }
-//     console.log(Users_schema)
-//     await Users_schema.findOne({ where: { email: email } })
-//         .then((user) => {
-//             if (user) {
-//                 return res.status(400).json({ error: "Email already exists" })
-//             }
-//             const hashed_password = CryptoJS.SHA256(password).toString()
-//             Users_schema.create({
-//                 role, userName, firstName, lastName, email,
-//                 password: hashed_password, is_Verified: 0
-//             })
-//                 .then((data) => {
-//                     let token = generateAccessToken(email, 0)
-//                     send_mail(email, token)
-//                     res.status(201).json({ message: "User created" })
-//                 }).catch((err) => {
-//                     res.status(500).json({ error: err.message })
-//                 })
-//         })
-// }
+
 
 exports.register = (req,res)=>{
     const {role, email, userName, firstName, lastName ,password, is_Verified} = req.body;
