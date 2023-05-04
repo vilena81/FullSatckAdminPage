@@ -24,7 +24,7 @@ exports.getAllProducts = async(req, res) => {
 exports.getProductById = async(req, res) => {
     try{
         const id = req.params;
-        const data = await Product.findOne({where: {id},})
+        const data = await Product.findOne({where:  id,})
         res.status(201).json(data)
     }
     catch(err){

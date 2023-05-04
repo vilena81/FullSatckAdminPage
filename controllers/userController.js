@@ -100,12 +100,13 @@ exports.getAllUsers = (req, res) => {
         .then(products => res.json(products))
         .catch(err => res.status(500).send({ err: err.message }))
 }
-exports.getUsersById = (req, res) => {
+
+exports.getUsersById = async(req, res) => {
     try {
         const id = req.params;
-        const data = Users_schema.findOne({ where: { id }, })
+        const data =await Users_schema.findOne({ where:  id , })
         res.status(201).json(data)
-    } catch (e) {
+    } catch (err) {
         res.send('ERROR')
     }
 }
